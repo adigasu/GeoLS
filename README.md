@@ -24,7 +24,7 @@ pip install GeodisTK
 
 Generate the normalized geodesic maps:
 ```python
-python geodesic_maps.py --dataset=FLARE --nub_classes=5 --input_dir="./FLARE/dataset" --ouput_dir="./FLARE/geodesic_maps"
+python geodesic_maps.py --dataset=FLARE --num_classes=5 --input_dir="./FLARE/dataset" --output_dir="./FLARE/geodesic_maps"
 ```
 
 ## GeoLS loss
