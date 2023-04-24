@@ -1,6 +1,6 @@
-# GeoLS: Geodesic Label Smoothing for Image Segmentation
+# <p align="center"> _GeoLS: Geodesic Label Smoothing for Image Segmentation_ <br /> (MIDL 2023) [[paper](https://openreview.net/forum?id=mTIP1bkmR0q)]
 
-This repository contains implementation of GeoLS: Geodesic Label Smoothing for Image Segmentation
+This repository contains implementation of Geodesic Label Smoothing (GeoLS) for Medical Image Segmentation. The proposed GeoLS integrates image information into the label smoothing process by leveraging the geodesic distance transform of the images. As the resulting label assignment is based on the computed geodesic map, class-wise relationships in the soft-labels are better modeled, as it considers image gradients at the boundary of two or more categories. Furthermore, spatial pixel-wise relationships are captured in the geodesic distance transform, integrating richer information than resorting to the Euclidean distance between pixels. 
 
 **Keywords:** Image Segmentation, Geodesic Distance, Label Smoothing
 
@@ -97,4 +97,16 @@ class CELossWithGeoLS_2D(torch.nn.Module):
             oh_labels = (targets[...,None] == self.class_indx).permute(0,3,1,2)
             gls_labels = (1 - self.alpha) * oh_labels + self.alpha * geodesic_maps
         return (- gls_labels * F.log_softmax(predictions, dim=1)).sum(dim=1).mean()
+```
+
+## Reference
+If you find this repo is helpful for your work, please consider citing our work.
+```
+@inproceedings{vasudeva2023geols,
+    title={Geo{LS}: Geodesic Label Smoothing for Image Segmentation},
+    author={Sukesh Adiga Vasudeva and Jose Dolz and Herve Lombaert},
+    booktitle={Medical Imaging with Deep Learning},
+    year={2023}
+}
+
 ```
