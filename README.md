@@ -1,9 +1,9 @@
 # <p align="center"> _GeoLS: Geodesic Label Smoothing for Image Segmentation_ <br />
 ## <p align="center"> _MIDL 2023, Oral Presentation_ [[paper](https://openreview.net/forum?id=mTIP1bkmR0q)] [[presentation](https://github.com/adigasu/GeoLS/blob/main/Files/MIDL2023_presentation.pdf)] [[poster](https://github.com/adigasu/GeoLS/blob/main/Files/MIDL2023_Poster.pdf)]
 
-This repository contains implementation of Geodesic Label Smoothing (GeoLS) for Medical Image Segmentation. The proposed GeoLS integrates image information into the label smoothing process by leveraging the geodesic distance transform of the images. As the resulting label assignment is based on the computed geodesic map, class-wise relationships in the soft-labels are better modeled, as it considers image gradients at the boundary of two or more categories. Furthermore, spatial pixel-wise relationships are captured in the geodesic distance transform, integrating richer information than resorting to the Euclidean distance between pixels. 
+This repository contains an implementation of the Geodesic Label Smoothing (GeoLS) approach for Medical Image Segmentation. The proposed GeoLS integrates intensity variations into the label smoothing process by leveraging the geodesic distance transform. The resulting label assignment is based on the computed geodesic map, capturing class-wise relationships across two or more categories. Furthermore, spatial relationships are captured in the geodesic distance transform, integrating richer information than resorting to the Euclidean distance between pixels. 
 
-**TL;DR:** Geodesic distance based label smoothing for image segmentation, which captures spatial relation and image context.
+**TL;DR:** Geodesic distance-based label smoothing for image segmentation, which captures the underlying image context.
 
 <p align="center">  <img src = 'Files/soft_labels.png' height = '350px'>
 
@@ -33,16 +33,16 @@ python geodesic_maps.py --dataset=FLARE --num_classes=5 --input_dir="./FLARE/dat
 
 ## GeoLS loss
 
-Load the normalized geodesic maps along with dataset (inputs and targets) in the dataloader of any segementation network and use the geodesic maps in the loss function as below:
+Load the normalized geodesic maps along with the dataset (inputs and targets) in the data loader of any segmentation network and use the geodesic maps in the loss function as below:
 
 Example:
 ```python
-creteria = CELossWithGeoLS(classes=5, alpha=0.1)  # For FLARE dataset having 5 classes
+criteria = CELossWithGeoLS(classes=5, alpha=0.1)  # For FLARE dataset having 5 classes
 .
 .
 .
 predictions = model(inputs)
-loss = criterion(predictions, targets, geodesic_maps)
+loss = criteria(predictions, targets, geodesic_maps)
 ```
 
 For 3D image segmentation (as in paper)
@@ -54,7 +54,7 @@ class CELossWithGeoLS(torch.nn.Module):
         super(CELossWithGeoLS, self).__init__()
         '''
         classes: number of classes
-        alpha: smoothing factor [0,1]. When alpha=0, it reduces to CE loss
+        alpha: smoothing factor [0,1]. When alpha=0, it reduces to CE loss.
         '''
         
         self.alpha = alpha
@@ -82,7 +82,7 @@ class CELossWithGeoLS_2D(torch.nn.Module):
         super(CELossWithGeoLS_2D, self).__init__()
         '''
         classes: number of classes
-        alpha: smoothing factor [0,1]. When alpha=0, it reduces to CE loss
+        alpha: smoothing factor [0,1]. When alpha=0, it reduces to CE loss.
         '''
         
         self.alpha = alpha
@@ -104,7 +104,7 @@ class CELossWithGeoLS_2D(torch.nn.Module):
 ```
 
 ## Reference
-If you find this repo is helpful for your work, please consider citing our work.
+If you find this repo helpful for your work, please consider citing our work.
 ```
 @inproceedings{vasudeva2023geols,
     title={Geo{LS}: Geodesic Label Smoothing for Image Segmentation},
