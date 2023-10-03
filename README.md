@@ -5,7 +5,7 @@ This repository contains an implementation of the Geodesic Label Smoothing (GeoL
 
 **TL;DR:** Geodesic distance-based label smoothing for image segmentation, which captures the underlying image context.
 
-<p align="center">  <img src = 'Files/soft_labels.png' height = '350px'>
+<p align="center">  <img src = 'Files/soft_labels.png' height = '320px'>
 
 **Keywords:** Image Segmentation, Geodesic Distance, Label Smoothing
 
