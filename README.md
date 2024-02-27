@@ -1,11 +1,10 @@
 # <p align="center"> _GeoLS: Geodesic Label Smoothing for Image Segmentation_ <br />
-## <p align="center"> _MIDL 2023, Oral Presentation_ [[paper](https://openreview.net/forum?id=mTIP1bkmR0q)] [[presentation](https://github.com/adigasu/GeoLS/blob/main/Files/MIDL2023_presentation.pdf)] [[poster](https://github.com/adigasu/GeoLS/blob/main/Files/MIDL2023_Poster.pdf)]
-
+## <p align="center"> _MIDL 2023, Oral Presentation_ [[paper](https://openreview.net/forum?id=mTIP1bkmR0q)]
 This repository contains an implementation of the Geodesic Label Smoothing (GeoLS) approach for Medical Image Segmentation. The proposed GeoLS integrates intensity variations into the label smoothing process by leveraging the geodesic distance transform. The resulting label assignment is based on the computed geodesic map, capturing class-wise relationships across two or more categories. Furthermore, spatial relationships are captured in the geodesic distance transform, integrating richer information than resorting to the Euclidean distance between pixels. 
 
 **TL;DR:** Geodesic distance-based label smoothing for image segmentation, which captures the underlying image context.
 
-<p align="center">  <img src = 'Files/soft_labels.png' height = '320px'>
+<p align="center">  <img src = 'GeoLS_intro.png' height = '320px'>
 
 **Keywords:** Image Segmentation, Geodesic Distance, Label Smoothing
 
