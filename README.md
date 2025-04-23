@@ -4,7 +4,7 @@ This repository contains an implementation of the Geodesic Label Smoothing (GeoL
 
 **TL;DR:** Geodesic distance-based label smoothing for image segmentation, which captures the underlying image context.
 
-<p align="center">  <img src = 'GeoLS_vs_svls_ls.png' height = '320px'>
+<p align="center">  <img src = 'GeoLS_vs_svls_ls.png' height = '450px'>
 
 **Keywords:** Image Segmentation, Geodesic Distance, Label Smoothing
 
@@ -106,10 +106,18 @@ class CELossWithGeoLS_2D(torch.nn.Module):
 If you find this repo helpful for your work, please consider citing our work.
 ```
 @inproceedings{vasudeva2023geols,
+    title={Geo{LS}: an Intensity-based, Geodesic Soft Labeling for Image Segmentation},
+    author={Sukesh Adiga Vasudeva and Jose Dolz and Herve Lombaert},
+    booktitle={Journal of Machine Learning for Biomedical Imaging},
+    year={2025}
+}
+```
+
+```
+@inproceedings{vasudeva2023geols,
     title={Geo{LS}: Geodesic Label Smoothing for Image Segmentation},
     author={Sukesh Adiga Vasudeva and Jose Dolz and Herve Lombaert},
     booktitle={Medical Imaging with Deep Learning},
     year={2023}
 }
-
 ```
